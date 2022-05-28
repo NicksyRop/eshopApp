@@ -4,7 +4,7 @@ import { Card, List, ListItem, Avatar } from "@ui-kitten/components";
 
 const SearchedProducts = (props) => {
   const { productsFiltered } = props;
-  console.log(productsFiltered);
+
   const image = (item) => {
     return item.image;
   };
@@ -49,7 +49,7 @@ const SearchedProducts = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    maxHeight: 180,
+    maxHeight: Dimensions.get("window").height - 50,
   },
   avatar: {
     margin: 8,
