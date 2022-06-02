@@ -8,10 +8,13 @@ const SearchedProducts = (props) => {
   const image = (item) => {
     return item.image;
   };
-  const renderItem = ({ item, index }) => (
+  const renderItem = ({ item, index, navigation }) => (
     <ListItem
       title={`${item.name} ${index + 1}`}
       description={`${item.price} ${index + 1}`}
+      onPress={() => {
+        props.navigation.navigate("Product Details", { item: item });
+      }}
       accessoryRight={() => (
         <Image
           resizeMode="contain"

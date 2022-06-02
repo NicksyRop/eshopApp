@@ -11,17 +11,20 @@ import {
   Text,
 } from "@ui-kitten/components";
 import { EvaIconsPack } from "@ui-kitten/eva-icons";
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
 import Banner from "./shared/Banner";
+import Main from "./Navigator/Main";
 
 export default function App() {
   return (
-    <>
+    <NavigationContainer>
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={eva.light}>
         <Header />
-        <ProductContainer />
+        <Main />
       </ApplicationProvider>
-    </>
+    </NavigationContainer>
   );
 }
 

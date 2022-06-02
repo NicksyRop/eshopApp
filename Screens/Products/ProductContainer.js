@@ -16,7 +16,7 @@ import Banner from "../../shared/Banner";
 import CategoriesFilter from "./CategoriesFilter";
 const data = require("../../assets/data/products.json");
 const catdata = require("../../assets/data/categories.json");
-const ProductContainer = () => {
+const ProductContainer = ({ navigation }) => {
   const [products, setProducts] = useState([]);
   const [focus, setFocus] = useState();
   const [productsFiltered, setFilteredProducts] = useState([]);
@@ -81,7 +81,10 @@ const ProductContainer = () => {
 
       <ScrollView>
         {focus == true ? (
-          <SearchedProducts productsFiltered={productsFiltered} />
+          <SearchedProducts
+            navigation={navigation}
+            productsFiltered={productsFiltered}
+          />
         ) : (
           <View>
             <View
@@ -105,7 +108,13 @@ const ProductContainer = () => {
             {productCat.length > 0 ? (
               <View style={styles.listContainer}>
                 {productCat.map((item) => {
-                  return <ProductList key={item._id.$oid} item={item} />;
+                  return (
+                    <ProductList
+                      navigation={navigation}
+                      key={item._id.$oid}
+                      item={item}
+                    />
+                  );
                 })}
               </View>
             ) : (
